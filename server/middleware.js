@@ -5608,7 +5608,7 @@ const mergeNextClerkPropsWithEnv = (props)=>{
         afterSignUpUrl: props.afterSignUpUrl || "/dashboard" || 0,
         sdkMetadata: {
             name: "@clerk/nextjs",
-            version: "4.27.3"
+            version: "4.27.4"
         }
     };
 };
@@ -5885,8 +5885,8 @@ const RuntimeFetch = fetch;
 // EXTERNAL MODULE: ./node_modules/deepmerge/dist/cjs.js
 var cjs = __webpack_require__(713);
 var cjs_default = /*#__PURE__*/__webpack_require__.n(cjs);
-// EXTERNAL MODULE: ./node_modules/snakecase-keys/index.js
-var snakecase_keys = __webpack_require__(543);
+// EXTERNAL MODULE: ./node_modules/@clerk/backend/node_modules/snakecase-keys/index.js
+var snakecase_keys = __webpack_require__(838);
 var snakecase_keys_default = /*#__PURE__*/__webpack_require__.n(snakecase_keys);
 // EXTERNAL MODULE: ./node_modules/cookie/index.js
 var cookie = __webpack_require__(211);
@@ -6265,117 +6265,20 @@ var OrganizationAPI = class extends AbstractAPI {
         });
     }
 };
-// src/api/endpoints/OrganizationRoleApi.ts
-var basePath8 = "/organizations_roles";
-var OrganizationRoleAPI = class extends AbstractAPI {
-    async getOrganizationRoleList(params) {
-        return this.request({
-            method: "GET",
-            path: basePath8,
-            queryParams: params
-        });
-    }
-    async createOrganizationRole(params) {
-        return this.request({
-            method: "POST",
-            path: basePath8,
-            bodyParams: params
-        });
-    }
-    async getOrganizationRole(params) {
-        this.requireId(params.roleId);
-        return this.request({
-            method: "GET",
-            path: joinPaths(basePath8, params.roleId)
-        });
-    }
-    async updateOrganizationRole(roleId, params) {
-        this.requireId(roleId);
-        return this.request({
-            method: "PATCH",
-            path: joinPaths(basePath8, roleId),
-            bodyParams: params
-        });
-    }
-    async deleteOrganizationRole(roleId) {
-        this.requireId(roleId);
-        return this.request({
-            method: "DELETE",
-            path: joinPaths(basePath8, roleId)
-        });
-    }
-    async assignPermissionToRole(params) {
-        const { roleId, permissionId } = params;
-        this.requireId(roleId);
-        this.requireId(permissionId);
-        return this.request({
-            method: "POST",
-            path: joinPaths(basePath8, roleId, "permission", permissionId)
-        });
-    }
-    async removePermissionFromRole(params) {
-        const { roleId, permissionId } = params;
-        this.requireId(roleId);
-        this.requireId(permissionId);
-        return this.request({
-            method: "DELETE",
-            path: joinPaths(basePath8, roleId, "permission", permissionId)
-        });
-    }
-};
-// src/api/endpoints/OrganizationPermissionApi.ts
-var basePath9 = "/organizations_permissions";
-var OrganizationPermissionAPI = class extends AbstractAPI {
-    async getOrganizationPermissionList(params) {
-        return this.request({
-            method: "GET",
-            path: basePath9,
-            queryParams: params
-        });
-    }
-    async createOrganizationPermission(params) {
-        return this.request({
-            method: "POST",
-            path: basePath9,
-            bodyParams: params
-        });
-    }
-    async getOrganizationPermission(params) {
-        this.requireId(params.permissionId);
-        return this.request({
-            method: "GET",
-            path: joinPaths(basePath9, params.permissionId)
-        });
-    }
-    async updateOrganizationPermission(permissionId, params) {
-        this.requireId(permissionId);
-        return this.request({
-            method: "PATCH",
-            path: joinPaths(basePath9, permissionId),
-            bodyParams: params
-        });
-    }
-    async deleteOrganizationPermission(permissionId) {
-        return this.request({
-            method: "DELETE",
-            path: joinPaths(basePath9, permissionId)
-        });
-    }
-};
 // src/api/endpoints/PhoneNumberApi.ts
-var basePath10 = "/phone_numbers";
+var basePath8 = "/phone_numbers";
 var PhoneNumberAPI = class extends AbstractAPI {
     async getPhoneNumber(phoneNumberId) {
         this.requireId(phoneNumberId);
         return this.request({
             method: "GET",
-            path: joinPaths(basePath10, phoneNumberId)
+            path: joinPaths(basePath8, phoneNumberId)
         });
     }
     async createPhoneNumber(params) {
         return this.request({
             method: "POST",
-            path: basePath10,
+            path: basePath8,
             bodyParams: params
         });
     }
@@ -6383,7 +6286,7 @@ var PhoneNumberAPI = class extends AbstractAPI {
         this.requireId(phoneNumberId);
         return this.request({
             method: "PATCH",
-            path: joinPaths(basePath10, phoneNumberId),
+            path: joinPaths(basePath8, phoneNumberId),
             bodyParams: params
         });
     }
@@ -6391,30 +6294,30 @@ var PhoneNumberAPI = class extends AbstractAPI {
         this.requireId(phoneNumberId);
         return this.request({
             method: "DELETE",
-            path: joinPaths(basePath10, phoneNumberId)
+            path: joinPaths(basePath8, phoneNumberId)
         });
     }
 };
 // src/api/endpoints/RedirectUrlApi.ts
-var basePath11 = "/redirect_urls";
+var basePath9 = "/redirect_urls";
 var RedirectUrlAPI = class extends AbstractAPI {
     async getRedirectUrlList() {
         return this.request({
             method: "GET",
-            path: basePath11
+            path: basePath9
         });
     }
     async getRedirectUrl(redirectUrlId) {
         this.requireId(redirectUrlId);
         return this.request({
             method: "GET",
-            path: joinPaths(basePath11, redirectUrlId)
+            path: joinPaths(basePath9, redirectUrlId)
         });
     }
     async createRedirectUrl(params) {
         return this.request({
             method: "POST",
-            path: basePath11,
+            path: basePath9,
             bodyParams: params
         });
     }
@@ -6422,17 +6325,17 @@ var RedirectUrlAPI = class extends AbstractAPI {
         this.requireId(redirectUrlId);
         return this.request({
             method: "DELETE",
-            path: joinPaths(basePath11, redirectUrlId)
+            path: joinPaths(basePath9, redirectUrlId)
         });
     }
 };
 // src/api/endpoints/SessionApi.ts
-var basePath12 = "/sessions";
+var basePath10 = "/sessions";
 var SessionAPI = class extends AbstractAPI {
     async getSessionList(queryParams) {
         return this.request({
             method: "GET",
-            path: basePath12,
+            path: basePath10,
             queryParams
         });
     }
@@ -6440,21 +6343,21 @@ var SessionAPI = class extends AbstractAPI {
         this.requireId(sessionId);
         return this.request({
             method: "GET",
-            path: joinPaths(basePath12, sessionId)
+            path: joinPaths(basePath10, sessionId)
         });
     }
     async revokeSession(sessionId) {
         this.requireId(sessionId);
         return this.request({
             method: "POST",
-            path: joinPaths(basePath12, sessionId, "revoke")
+            path: joinPaths(basePath10, sessionId, "revoke")
         });
     }
     async verifySession(sessionId, token) {
         this.requireId(sessionId);
         return this.request({
             method: "POST",
-            path: joinPaths(basePath12, sessionId, "verify"),
+            path: joinPaths(basePath10, sessionId, "verify"),
             bodyParams: {
                 token
             }
@@ -6464,17 +6367,17 @@ var SessionAPI = class extends AbstractAPI {
         this.requireId(sessionId);
         return (await this.request({
             method: "POST",
-            path: joinPaths(basePath12, sessionId, "tokens", template || "")
+            path: joinPaths(basePath10, sessionId, "tokens", template || "")
         })).jwt;
     }
 };
 // src/api/endpoints/SignInTokenApi.ts
-var basePath13 = "/sign_in_tokens";
+var basePath11 = "/sign_in_tokens";
 var SignInTokenAPI = class extends AbstractAPI {
     async createSignInToken(params) {
         return this.request({
             method: "POST",
-            path: basePath13,
+            path: basePath11,
             bodyParams: params
         });
     }
@@ -6482,13 +6385,13 @@ var SignInTokenAPI = class extends AbstractAPI {
         this.requireId(signInTokenId);
         return this.request({
             method: "POST",
-            path: joinPaths(basePath13, signInTokenId, "revoke")
+            path: joinPaths(basePath11, signInTokenId, "revoke")
         });
     }
 };
 // src/api/endpoints/SMSMessageApi.ts
 
-var basePath14 = "/sms_messages";
+var basePath12 = "/sms_messages";
 var SMSMessageAPI = class extends AbstractAPI {
     /**
    * @deprecated This endpoint is no longer available and the function will be removed in the next major version.
@@ -6496,18 +6399,18 @@ var SMSMessageAPI = class extends AbstractAPI {
         chunk_KJVJ4CFF_deprecated("SMSMessageAPI.createSMSMessage", "This endpoint is no longer available and the function will be removed in the next major version.");
         return this.request({
             method: "POST",
-            path: basePath14,
+            path: basePath12,
             bodyParams: params
         });
     }
 };
 // src/api/endpoints/UserApi.ts
-var basePath15 = "/users";
+var basePath13 = "/users";
 var UserAPI = class extends AbstractAPI {
     async getUserList(params = {}) {
         return this.request({
             method: "GET",
-            path: basePath15,
+            path: basePath13,
             queryParams: params
         });
     }
@@ -6515,13 +6418,13 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "GET",
-            path: joinPaths(basePath15, userId)
+            path: joinPaths(basePath13, userId)
         });
     }
     async createUser(params) {
         return this.request({
             method: "POST",
-            path: basePath15,
+            path: basePath13,
             bodyParams: params
         });
     }
@@ -6529,7 +6432,7 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "PATCH",
-            path: joinPaths(basePath15, userId),
+            path: joinPaths(basePath13, userId),
             bodyParams: params
         });
     }
@@ -6539,7 +6442,7 @@ var UserAPI = class extends AbstractAPI {
         formData.append("file", params?.file);
         return this.request({
             method: "POST",
-            path: joinPaths(basePath15, userId, "profile_image"),
+            path: joinPaths(basePath13, userId, "profile_image"),
             formData
         });
     }
@@ -6547,7 +6450,7 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "PATCH",
-            path: joinPaths(basePath15, userId, "metadata"),
+            path: joinPaths(basePath13, userId, "metadata"),
             bodyParams: params
         });
     }
@@ -6555,13 +6458,13 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "DELETE",
-            path: joinPaths(basePath15, userId)
+            path: joinPaths(basePath13, userId)
         });
     }
     async getCount(params = {}) {
         return this.request({
             method: "GET",
-            path: joinPaths(basePath15, "count"),
+            path: joinPaths(basePath13, "count"),
             queryParams: params
         });
     }
@@ -6569,14 +6472,14 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "GET",
-            path: joinPaths(basePath15, userId, "oauth_access_tokens", provider)
+            path: joinPaths(basePath13, userId, "oauth_access_tokens", provider)
         });
     }
     async disableUserMFA(userId) {
         this.requireId(userId);
         return this.request({
             method: "DELETE",
-            path: joinPaths(basePath15, userId, "mfa")
+            path: joinPaths(basePath13, userId, "mfa")
         });
     }
     async getOrganizationMembershipList(params) {
@@ -6584,7 +6487,7 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "GET",
-            path: joinPaths(basePath15, userId, "organization_memberships"),
+            path: joinPaths(basePath13, userId, "organization_memberships"),
             queryParams: {
                 limit,
                 offset
@@ -6596,7 +6499,7 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "POST",
-            path: joinPaths(basePath15, userId, "verify_password"),
+            path: joinPaths(basePath13, userId, "verify_password"),
             bodyParams: {
                 password
             }
@@ -6607,7 +6510,7 @@ var UserAPI = class extends AbstractAPI {
         this.requireId(userId);
         return this.request({
             method: "POST",
-            path: joinPaths(basePath15, userId, "verify_totp"),
+            path: joinPaths(basePath13, userId, "verify_totp"),
             bodyParams: {
                 code
             }
@@ -6833,8 +6736,6 @@ var ObjectType = /* @__PURE__ */ ((ObjectType2)=>{
     ObjectType2["Organization"] = "organization";
     ObjectType2["OrganizationInvitation"] = "organization_invitation";
     ObjectType2["OrganizationMembership"] = "organization_membership";
-    ObjectType2["Role"] = "role";
-    ObjectType2["Permission"] = "permission";
     ObjectType2["PhoneNumber"] = "phone_number";
     ObjectType2["RedirectUrl"] = "redirect_url";
     ObjectType2["Session"] = "session";
@@ -6885,36 +6786,6 @@ var Organization = class _Organization {
     }
 };
 deprecatedProperty(Organization, "logoUrl", "Use `imageUrl` instead.");
-// src/api/resources/Permission.ts
-var Permission = class _Permission {
-    constructor(id, name, key, description, type, createdAt, updatedAt){
-        this.id = id;
-        this.name = name;
-        this.key = key;
-        this.description = description;
-        this.type = type;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-    static fromJSON(data) {
-        return new _Permission(data.id, data.name, data.key, data.description, data.type, data.created_at, data.updated_at);
-    }
-};
-// src/api/resources/Role.ts
-var Role = class _Role {
-    constructor(id, name, key, description, permissions = [], createdAt, updatedAt){
-        this.id = id;
-        this.name = name;
-        this.key = key;
-        this.description = description;
-        this.permissions = permissions;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-    static fromJSON(data) {
-        return new _Role(data.id, data.name, data.key, data.description, (data.permissions || []).map((x)=>Permission.fromJSON(x)), data.created_at, data.updated_at);
-    }
-};
 // src/api/resources/OrganizationInvitation.ts
 var OrganizationInvitation = class _OrganizationInvitation {
     constructor(id, emailAddress, role, organizationId, createdAt, updatedAt, status, publicMetadata = {}, privateMetadata = {}){
@@ -7273,8 +7144,6 @@ function createBackendApiClient(options) {
         interstitial: new InterstitialAPI(request),
         invitations: new InvitationAPI(request),
         organizations: new OrganizationAPI(request),
-        organizationRoles: new OrganizationRoleAPI(request),
-        organizationPermissions: new OrganizationPermissionAPI(request),
         phoneNumbers: new PhoneNumberAPI(request),
         redirectUrls: new RedirectUrlAPI(request),
         sessions: new SessionAPI(request),
@@ -8825,7 +8694,7 @@ function debugLogHeader(name) {
     return `[clerk debug start: ${name}]`;
 }
 function debugLogFooter(name) {
-    return `[clerk debug end: ${name}] (@clerk/nextjs=${"4.27.3"},next=${package_namespaceObject.i8})`;
+    return `[clerk debug end: ${name}] (@clerk/nextjs=${"4.27.4"},next=${package_namespaceObject.i8})`;
 }
 function truncate(str, maxLength) {
     const encoder = new TextEncoder();
@@ -9225,7 +9094,12 @@ async function currentUser() {
 
 
 const mergeResponses = (...responses)=>{
-    const normalisedResponses = responses.filter(Boolean).map((res)=>new NextResponse(res.body, res));
+    const normalisedResponses = responses.filter(Boolean).map((res)=>{
+        if (res instanceof NextResponse) {
+            return res;
+        }
+        return new NextResponse(res.body, res);
+    });
     if (normalisedResponses.length === 0) {
         return;
     }
@@ -9236,7 +9110,8 @@ const mergeResponses = (...responses)=>{
             finalResponse.headers.set(name, value);
         });
         response.cookies.getAll().forEach((cookie)=>{
-            finalResponse.cookies.set(cookie.name, cookie.value);
+            const { name, value, ...options } = cookie;
+            finalResponse.cookies.set(name, value, options);
         });
     }
     return finalResponse;
@@ -10172,6 +10047,35 @@ function nHandler(opts) {
 }
 
 //# sourceMappingURL=middleware.js.map
+
+/***/ }),
+
+/***/ 838:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+const map = __webpack_require__(625);
+const { snakeCase } = __webpack_require__(130);
+module.exports = function(obj, options) {
+    options = Object.assign({
+        deep: true,
+        exclude: [],
+        parsingOptions: {}
+    }, options);
+    return map(obj, function(key, val) {
+        return [
+            matches(options.exclude, key) ? key : snakeCase(key, options.parsingOptions),
+            val
+        ];
+    }, options);
+};
+function matches(patterns, value) {
+    return patterns.some(function(pattern) {
+        return typeof pattern === "string" ? pattern === value : pattern.test(value);
+    });
+}
+
 
 /***/ }),
 
@@ -25016,35 +24920,6 @@ function snakeCase(input, options) {
         delimiter: "_"
     }, options));
 } //# sourceMappingURL=index.js.map
-
-
-/***/ }),
-
-/***/ 543:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const map = __webpack_require__(625);
-const { snakeCase } = __webpack_require__(130);
-module.exports = function(obj, options) {
-    options = Object.assign({
-        deep: true,
-        exclude: [],
-        parsingOptions: {}
-    }, options);
-    return map(obj, function(key, val) {
-        return [
-            matches(options.exclude, key) ? key : snakeCase(key, options.parsingOptions),
-            val
-        ];
-    }, options);
-};
-function matches(patterns, value) {
-    return patterns.some(function(pattern) {
-        return typeof pattern === "string" ? pattern === value : pattern.test(value);
-    });
-}
 
 
 /***/ }),
