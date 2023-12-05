@@ -47,19 +47,22 @@ TODO's:
 ----------------------------------------------------------------------------------------------------
 REFERENCES / SOURCES / LINKS:
 
-Travercy Media Tutorial Video (Simple Next.js & React Authentication With Clerk):
-https://www.youtube.com/watch?v=RHFmsoiVtKE
+- Travercy Media Tutorial Video (Simple Next.js & React Authentication With Clerk):
+  https://www.youtube.com/watch?v=RHFmsoiVtKE
 
-Clerk | Rate Limits:
-https://clerk.com/docs/backend-requests/resources/rate-limits
+- Clerk | Rate Limits:
+  https://clerk.com/docs/backend-requests/resources/rate-limits
 
-Clerk | Error Handling:
-https://clerk.com/docs/custom-flows/error-handling
+- Clerk | Error Handling:
+  https://clerk.com/docs/custom-flows/error-handling
 
-GitHUB SOURCE:
-https://github.com/bradtraversy/clerk-app/tree/main
+- GitHUB SOURCE:
+  https://github.com/bradtraversy/clerk-app/tree/main
 
-GitHUB PAGES:
+- Using GitHub Pages to Build, Deploy, and Host Next.js
+  https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
+
+- GitHUB PAGES:
 
 ----------------------------------------------------------------------------------------------------
 MODIFICATIONS:
