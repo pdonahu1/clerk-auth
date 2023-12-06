@@ -1,10 +1,10 @@
 {
   "/_not-found": "app/_not-found.js",
-  "/profile/page": "app/profile/page.js",
-  "/page": "app/page.js",
   "/dashboard/page": "app/dashboard/page.js",
+  "/page": "app/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/register/page": "app/register/page.js",
+  "/profile/page": "app/profile/page.js",
   "/sign-in/[[...sign-up]]/page": "app/sign-in/[[...sign-up]]/page.js",
   "/sign-up/[[...sign-up]]/page": "app/sign-up/[[...sign-up]]/page.js"
 }
